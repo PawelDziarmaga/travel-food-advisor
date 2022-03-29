@@ -16,7 +16,6 @@ const Div = styled.div`
 	display: flex;
 `;
 const App = () => {
-	console.log(List);
 	return (
 		<React.Fragment>
 			<Header />
