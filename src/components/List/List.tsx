@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Div = styled.div`
 	flex-grow: 1;
+	height: 94vh;
 `;
 
 const List = () => {
