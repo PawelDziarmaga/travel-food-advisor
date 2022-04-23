@@ -1,37 +1,17 @@
 import React from "react";
+//Import style
 import styled from "styled-components";
+//Import components
 import GoogleMapReact from "google-map-react";
-import { parentPort } from "worker_threads";
-
+/*import { parentPort } from "worker_threads";*/
+//Import types
+import { PropsType } from "./TypeMap";
+//Define style
 const Div = styled.div`
 	flex-grow: 2;
 	height: 94vh;
 `;
 
-type PropsType = {
-	setCoordinates: React.Dispatch<
-		React.SetStateAction<{
-			lat: number;
-			lng: number;
-		}>
-	>;
-	setBounds: React.Dispatch<
-		React.SetStateAction<{
-			ne: {
-				lat: number;
-				lng: number;
-			};
-			sw: {
-				lat: number;
-				lng: number;
-			};
-		}>
-	>;
-	coordinates: { lat: number; lng: number };
-	places: {
-		latitude: number;
-	}[];
-};
 const Map = (props: PropsType) => {
 	return (
 		<Div>

@@ -1,8 +1,12 @@
+//Import hooks
 import { useState } from "react";
-import styled from "styled-components";
-
+//Import components
 import Details from "../Details/Details";
-
+//Import types
+import { PropsType } from "./TypeList";
+//Import style
+import styled from "styled-components";
+//Define style
 const Div = styled.div`
 	flex-grow: 1;
 	max-width: 30%;
@@ -25,21 +29,13 @@ const Div = styled.div`
 		margin: 10px;
 	}
 `;
-type PropsType = {
-	places: {
-		name: string;
-		photo: { images: { original: { url: string } } };
-		phone: string;
-		open_now_text: string;
-		rating: string;
-		website: string;
-	}[];
-};
+
 const List = (props: PropsType) => {
+	//Define State
 	const [type, setType] = useState<string>("");
 	const [rating, setRating] = useState<string>("");
-
-	const placesElement: JSX.Element[] = props.places.map((place) => {
+	//Crete list elements
+	const placesElement: JSX.Element[] = props.places?.map((place) => {
 		return (
 			<div key={place.name}>
 				<Details place={place} />

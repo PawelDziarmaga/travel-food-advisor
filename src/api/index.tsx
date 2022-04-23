@@ -1,8 +1,9 @@
 import axious from "axios";
-
+//Define URL
 const URL =
 	"https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary";
 
+//Define Type
 type PropsType = {
 	ne: {
 		lat: number;
