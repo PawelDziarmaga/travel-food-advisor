@@ -7,6 +7,7 @@ const Div = styled.div`
 	flex-grow: 1;
 	max-width: 30%;
 	height: 94vh;
+	overflow-y: scroll;
 	h2 {
 		margin: 10px;
 	}
@@ -24,30 +25,28 @@ const Div = styled.div`
 		margin: 10px;
 	}
 `;
-
-const List = () => {
+type PropsType = {
+	places: {
+		name: string;
+		photo: { images: { original: { url: string } } };
+		phone: string;
+		open_now_text: string;
+		rating: string;
+		website: string;
+	}[];
+};
+const List = (props: PropsType) => {
 	const [type, setType] = useState<string>("");
 	const [rating, setRating] = useState<string>("");
 
-	const places = [
-		{ index: 1, name: "Cool Place" },
-		{ index: 2, name: "Best Beer" },
-		{ index: 3, name: "Best Steak" },
-		{ index: 4, name: "Cool Place" },
-		{ index: 5, name: "Best Beer" },
-		{ index: 6, name: "Best Steak" },
-		{ index: 7, name: "Cool Place" },
-		{ index: 8, name: "Best Beer" },
-		{ index: 9, name: "Best Steak" },
-	];
-	const placesElement: JSX.Element[] = places.map((place) => {
+	const placesElement: JSX.Element[] = props.places.map((place) => {
 		return (
-			<div key={place.index}>
+			<div key={place.name}>
 				<Details place={place} />
 			</div>
 		);
 	});
-	console.log(placesElement);
+
 	return (
 		<Div>
 			<h2>Restaurants, Hotels and Attractions around you</h2>
